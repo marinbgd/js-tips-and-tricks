@@ -1,0 +1,13 @@
+# General
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# JetBrains
+.idea
+
+# Thumbnails
+._*
+
+# Linux trash folder which might appear on any partition or disk
+.Trash-*
