@@ -45,15 +45,15 @@ haystack.includes('z'); // false
 ````
 
 ## Truthy and falsy values
-Whenever JS expects or converts values to boolean, a truthy value will be converted to "true" and falsy value will be converter to "false". All values are truthy except these:
-* 0
-* -0
-* null
-* undefined
-* NaN
-* '' // empty string
-* false
+Whenever JS expects or converts values to boolean, a truthy value will be converted to `true` and falsy value will be converter to `false`. All values are truthy except these:
+* `0`
+* `-0`
+* `null`
+* `undefined`
+* `NaN`
+* `''` // empty string
+* `false`
 
-The ! operator converts any value to a boolean. Using this operator any falsy value will be converted to "true". Double !! operator can be used to get corresponding boolean for any value. Examples:
-* !!null //false
-* !!{} //true
+The `!` operator converts any value to a boolean. Using this operator any falsy value will be converted to `true`. Double `!!` operator can be used to get corresponding boolean for any value. Examples:
+* `!!null` //false
+* `!!{}` //true
