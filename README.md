@@ -1,5 +1,6 @@
 # JavaScript tips and tricks
 
+
 ## Tilde ~ Bitwise Not operator
 - Great for checking if something exists in arrays/collections or strings
 - Bitwise not operator works like this: `*~N -> -(N+1)*`
@@ -44,6 +45,7 @@ haystack.includes('w'); // true
 haystack.includes('z'); // false
 ````
 
+
 ## Truthy and falsy values
 Whenever JS expects or converts values to boolean, a truthy value will be converted to `true` and falsy value will be converter to `false`. All values are truthy except these:
 * `0`
@@ -57,3 +59,44 @@ Whenever JS expects or converts values to boolean, a truthy value will be conver
 The `!` operator converts any value to a boolean. Using this operator any falsy value will be converted to `true`. Double `!!` operator can be used to get corresponding boolean for any value. Examples:
 * `!!null` //false
 * `!!{}` //true
+
+
+## Short-Circuiting
+- Using `||` and `&&` logical operators
+- **The logical `&&` operator returns the first operand if it is falsy, otherwise it returns the second operand**
+- `&&` can be used as replacement for `if` statements
+````
+    if (isFetchAssetsAllowed) {
+        fetchAssets()    
+    }
+    EQAUL
+    isFetchAssetsAllowed && fetchAssets()
+````
+- **The logical `||` operator returns the first operand if it is truthy, otherwise it returns the second operand**
+- `||` is commonly used for assigning fallback values to local variables
+````
+    // METHOD 1: Using if/else statements
+    let requestAnimFrame = null;
+    
+    if (window.requestAnimationFrame) {
+      requestAnimFrame = window.requestAnimationFrame;
+    }
+    
+    else if (window.webkitRequestAnimationFrame) {
+      requestAnimFrame = window.webkitRequestAnimationFrame;
+    }
+    
+    else if (window.mozRequestAnimationFrame) {
+      requestAnimFrame = window.mozRequestAnimationFrame;
+    }
+    
+    // METHOD 2: Using short-circuiting
+    const requestAnimFrame2 = (
+      window.requestAnimationFrame ||
+      window.webkitRequestAnimationFrame ||
+      window.mozRequestAnimationFrame ||
+      null
+    );
+    // the value of requestAnimFrame2 will be the first that is truthy!
+````
+- Note that short-circuiting actually returns the value!
