@@ -100,3 +100,22 @@ The `!` operator converts any value to a boolean. Using this operator any falsy 
     // the value of requestAnimFrame2 will be the first that is truthy!
 ````
 - Note that short-circuiting actually returns the value!
+
+
+## Conditional Object Properties
+The spread operator supports conditional adding of props. Don't have to create 2 separate functions/objects any more.
+````
+const getUser = ({ isEmailIncluded }) => {
+  return {
+    name: 'John',
+    surname: 'Doe',
+    ...isEmailIncluded && { email : 'john@doe.com' }
+  }
+}
+const user = getUser({ isEmailIncluded: true });
+console.log(user); // { name: "John", surname: "Doe", email: "john@doe.com" }
+
+const userWithoutEmail = getUser({ isEmailIncluded: false });
+console.log(userWithoutEmail); // { name: "John", surname: "Doe" }
+
+````
