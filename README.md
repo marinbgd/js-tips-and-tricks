@@ -119,3 +119,28 @@ const userWithoutEmail = getUser({ isEmailIncluded: false });
 console.log(userWithoutEmail); // { name: "John", surname: "Doe" }
 
 ````
+
+
+## Convert to Number
+To quickly convert a string to a number, + operator can be used followed by a string
+````
+let int = "15";
+int = +int; // typeof int === 'number'
+````
+
+
+## Quick Float to Integer
+Instead of Math.floor(), Math.ceil() or Math.round(), floats can be truncated to integers with the bitwise OR operator - "|" in a faster way.
+
+This operation removes whatever comes after the decimal point.
+
+````
+console.log(23.9 | 0);  // Result: 23
+console.log(-23.9 | 0); // Result: -23
+````
+You can get the same rounding effect by using "~~", as above, and in fact any bitwise operator would force a float to an integer.
+
+````
+console.log(~~23.9);  // Result: 23
+console.log(~~-23.9); // Result: -23
+````
