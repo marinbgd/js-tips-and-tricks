@@ -8,10 +8,10 @@
     1) `~(-1) = 0`
     2) `~(2) = -3`
     3) `~(0) = -1`
-    
+
 ````
   const haystack = [1, 2, 3, 4, 5, 7];
-  
+
   const needleInCollection = 4;
   const foundIndex = haystack.indexOf(needleInCollection); // foundIndex = 3
   if (~foundIndex) { // ~(3) = -4 -> truthy
@@ -23,12 +23,12 @@
   if (~foundIndex2) { // ~(-1) = 0 -> falsy
     // not found in haystack
   }
-  
+
 ````
 
 ````
   const foo = 'hello world';
-  
+
   if ( ~foo.indexOf('w') ) {
     // item in list
   } else {
@@ -77,19 +77,19 @@ The `!` operator converts any value to a boolean. Using this operator any falsy 
 ````
     // METHOD 1: Using if/else statements
     let requestAnimFrame = null;
-    
+
     if (window.requestAnimationFrame) {
       requestAnimFrame = window.requestAnimationFrame;
     }
-    
+
     else if (window.webkitRequestAnimationFrame) {
       requestAnimFrame = window.webkitRequestAnimationFrame;
     }
-    
+
     else if (window.mozRequestAnimationFrame) {
       requestAnimFrame = window.mozRequestAnimationFrame;
     }
-    
+
     // METHOD 2: Using short-circuiting
     const requestAnimFrame2 = (
       window.requestAnimationFrame ||
@@ -100,6 +100,18 @@ The `!` operator converts any value to a boolean. Using this operator any falsy 
     // the value of requestAnimFrame2 will be the first that is truthy!
 ````
 - Note that short-circuiting actually returns the value!
+
+
+## Numeric Separators
+Purpose is to group digits to make long numbers more readable.
+The proposal allows underscores as separators in numeric literals:
+````
+const distanceEarthSunInKm = 149_600_000; // 149600000
+````
+### Restristions:
+- You can only put underscores between two digits
+- Only one underscore is allowed as numeric separator
+- Number(), parseInt(), parseFloat() are not supporting numeric Separators
 
 
 ## Conditional Object Properties
