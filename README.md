@@ -103,7 +103,7 @@ The `!` operator converts any value to a boolean. Using this operator any falsy 
 
 
 ## Numeric Separators
-Purpose is to group digits to make long numbers more readable.
+Purpose is to group digits to make long numbers more readable.git
 The proposal allows underscores as separators in numeric literals:
 ````
 const distanceEarthSunInKm = 149_600_000; // 149600000
@@ -155,4 +155,21 @@ You can get the same rounding effect by using "~~", as above, and in fact any bi
 ````
 console.log(~~23.9);  // Result: 23
 console.log(~~-23.9); // Result: -23
+````
+
+
+## Replace all occurrences in a string
+string.replace method replaces on the first occurrence. Easy way to replace all is to use global regex `/g`, but this regex isn't complicated nor difficult to read.
+````
+let inputString = 'Bob is a big nerd. Bob gets angry when he is not working on a mechanical keyboard.'
+console.log(inputString.replace(/Bob/, 'Martin'));
+  // 'Martin is a big nerd. Bob gets angry when he is not working on a mechanical keyboard.'
+console.log(inputString.replace(/Bob/g, 'Martin'));
+  // 'Martin is a big nerd. Martin gets angry when he is not working on a mechanical keyboard.'
+````
+
+Another useful regex global - `/i` - case-insensitive replace
+````
+console.log(inputString.replace(/bob/gi, 'Martin'));
+  // 'Martin is a big nerd. Martin gets angry when he is not working on a mechanical keyboard.'
 ````
