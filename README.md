@@ -173,3 +173,32 @@ Another useful regex global - `/i` - case-insensitive replace
 console.log(inputString.replace(/bob/gi, 'Martin'));
   // 'Martin is a big nerd. Martin gets angry when he is not working on a mechanical keyboard.'
 ````
+
+
+## Name your functions
+Use meaningful names for clarity and faster code reading.
+````
+const numbersArr = [1, 2, 3, 4, 5]
+
+numbersArr.filter(num => num % 2 === 0) // BAD - need to think about what this function is doing
+
+const isEven = num => num % 2 === 0) // GOOD - immediately knowing what's going on.
+numbersArr.filter(isEven)
+````
+
+
+## Don't pass arguments from one function to another
+Array methods call functions that were sent to them with specific arguments.
+There is no need to explicitly pass those arguments through another function.
+````
+const numbersArr = [1, 2, 3, 4, 5]
+const multiplyByTwo = num => num * 2
+
+numbersArr.map(num => multiplyByTwo(num)) // BAD - There is no need to explicitly pass num.
+
+numbersArr.map(multiplyByTwo) // GOOD
+````
+### Attention !
+Arrays will call the function with the 3 values: item value, item index and the array itself.
+Watch for unwanted effects.
+For example, using parseInt() in this way will use second argument as radix and give the wrong results.
