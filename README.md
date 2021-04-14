@@ -102,13 +102,30 @@ The `!` operator converts any value to a boolean. Using this operator any falsy 
 - Note that short-circuiting actually returns the value!
 
 
+## Nullish Coalescing Operator - ??
+*??* is a logical operator that returns its right-hand side operand when its left-hand side operand is *null* or *undefined* and otherwise returns its left-hand side operand.
+````
+a = null
+a ?? b // returns b
+
+a = undefined
+a ?? b // returns b
+
+a = 0
+a ?? b // returs a
+
+a = 12
+a ?? b // returs a
+````
+
+
 ## Numeric Separators
 Purpose is to group digits to make long numbers more readable.git
 The proposal allows underscores as separators in numeric literals:
 ````
 const distanceEarthSunInKm = 149_600_000; // 149600000
 ````
-### Restristions:
+### Restrictions:
 - You can only put underscores between two digits
 - Only one underscore is allowed as numeric separator
 - Number(), parseInt(), parseFloat() are not supporting numeric Separators
